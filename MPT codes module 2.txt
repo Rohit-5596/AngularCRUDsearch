@@ -1,0 +1,23 @@
+npm config set https-proxy http://10.102.22.17:8080
+npm config set http-proxy http://10.102.22.17:8080
+ng version
+
+
+install bootstrap
+install bootstrap@latest jquery --save
+--------------------------------------------------
+bootstrap and jquery import....directly copy in 26-31 of angular.json
+
+"styles": [
+              "src/styles.css","node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+
+
+          "scripts": [
+              "node_modules/jquery/dist/jquery.min.js","node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+--------------------------------------------------------------
+import these form modules and http client
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';

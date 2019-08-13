@@ -1,0 +1,34 @@
+<p>addcustomer works!</p>
+<div class="container">
+        <form custForm="ngForm" (ngSubmit)="add()" class="was-validated">
+        <div class="form-group">
+            CustomerId: <input type="number" name="id" id="id" pattern="[0-9]{3,}" [(ngModel)]="cust.id" #custid="ngModel" class="form-control" required>
+            <span class="invalid-feedback" *ngIf="custid.touched && custid.errors?.required">Customer id required</span>
+            <span class="alert alert-danger" *ngIf="custid.errors?.pattern && custid.touched">Customer id should be 3 digit</span>
+        </div>
+
+        <div class="form-group">
+                CustomerName: <input type="text" name="name" id="name" pattern="[A-Z]{1}[a-z]{2,}" [(ngModel)]="cust.name" #custname="ngModel" class="form-control" required>
+                <span class="invalid-feedback" *ngIf="custname.touched && custname.errors?.required">Customer name required</span>
+                <span class="alert alert-danger" *ngIf="custname.errors?.pattern && custname.touched">Customer name should start with capital</span>
+            </div>
+
+            
+        <div class="form-group">
+                CustomerEmail: <input type="email" name="email" id="email" [(ngModel)]="cust.email" #custemail="ngModel" class="form-control" required email>
+                <span class="invalid-feedback" *ngIf="custemail.errors?.required && custemail.touched">Customer email required</span>
+                <span class="alert alert-danger" *ngIf="custemail.errors?.email && custemail.touched">not a valid email</span>
+            </div>
+
+            <div class="form-group">
+                    CustomerPhone: <input type="number" name="phone" id="phone" pattern="[0-9]{10}" [(ngModel)]="cust.phone" #custphone="ngModel" class="form-control" required>
+                    <span class="invalid-feedback" *ngIf="custphone.touched && custphone.errors?.required">Customer phone no required</span>
+                    <span class="alert alert-danger" *ngIf="custphone.errors?.pattern && custphone.touched">Customer phone no should be 10 digits</span>
+                </div>
+            
+            <button class="btn btn-primary" type="submit" [disabled]="empForm.invalid">Save</button>
+            {{custForm}}
+              
+        </form>
+        </div>
+        
